@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Região {{ regiao.RegiaoId }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Informação sobre a região</h2>
+  <p>
+    <b>Regiao Id: </b>{{ regiao.RegiaoId }}
+  </p>
+  <p>
+    <b>Distrito: </b>{{ regiao.Distrito }}
+  </p>
+  <p>
+    <b>NUTS III: </b><a href="/nuts/{{ regiao.NUTS_III }}">{{ regiao.NUTS_III }}</a>
+  </p>
+{% endblock %}

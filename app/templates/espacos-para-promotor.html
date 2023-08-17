@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Espaços que podem acolher o promotor "{{ search.Nome }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Espaço Id</b></th>
+    <th><b>Nome</b></th>
+    <th><b>Tipo de Atividade</b></th>
+   </tr>
+   
+  {% for d in dicionario %}
+    <tr>
+      <td><a href="/espacos/{{ d.EspacoId }}">{{ d.EspacoId }}</a></td>
+      <td>{{ d.espNome }}</td>
+      <td>{{ d.atvNome }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

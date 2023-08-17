@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Número de promotores que acolhem um dado tipo de atividades num dado distrito{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Distrito</b></th>
+    <th><b>Nº de Promtores por Atividade</b></th>
+   </tr>
+
+    {% for d in distritos %}
+    <tr>
+      <td>{{ d.Distrito }}</td>
+      
+        <td>
+          <table>
+            {% for agr in agrupada %}
+              <tr>
+                {% if agr.Distrito == d.Distrito %}
+                  <td>{{ agr.Atividade }}</td>
+                  <td>{{ agr.NumPromotores }}</td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+          </table>
+        </td>
+    </tr>
+    {% endfor %}
+  
+  </table>
+{% endblock %}

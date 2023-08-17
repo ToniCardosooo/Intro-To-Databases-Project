@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Espaços - Pesquisa Avançada{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Por região</h2>
+    <p>
+        <form name="esp_distrito" action="javascript:window.open('/espacos/pesquisa_avancada_distrito/'+document.forms['esp_distrito'].elements['expr'].value,'_self')">
+          Pesquisa por Distrito: <input name="distrito" id="expr" value="Porto" required/>
+        </form>
+    </p>
+    <p>
+        <form name="esp_nuts3" action="javascript:window.open('/espacos/pesquisa_avancada_nutsiii/'+document.forms['esp_nuts3'].elements['expr'].value,'_self')">
+          Pesquisa por NUTS III: <input name="nutsiii" id="expr" value="Área Metropolitana do Porto" required/>
+        </form>
+    </p>
+    <p>
+        <form name="esp_nuts2" action="javascript:window.open('/espacos/pesquisa_avancada_nutsii/'+document.forms['esp_nuts2'].elements['expr'].value,'_self')">
+          Pesquisa por NUTS II: <input name="nutsii" id="expr" value="Norte" required/>
+        </form>
+    </p>
+
+    <h2>Por atividade</h2>
+    <p>
+        <form name="esp_atividade" action="javascript:window.open('/espacos/pesquisa_avancada_atividade/'+document.forms['esp_atividade'].elements['expr'].value,'_self')">
+          Pesquisa por Atividade: <input name="atividades" id="expr" value="Cinema" required/>
+        </form>
+    </p>
+{% endblock %}

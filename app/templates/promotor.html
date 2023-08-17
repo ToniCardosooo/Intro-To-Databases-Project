@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ promotor.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Informação sobre o promotor</h2>
+  <p>
+    <b>Espaço Id: </b>{{ promotor.PromotorId }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ promotor.Nome }}
+  </p>
+  <p>
+    <b>Morada: </b>{{ promotor.Morada }}
+  </p>
+  <p>
+    <b>Código Postal: </b>{{ promotor.CodPostal }}
+  </p>
+  <p>
+    <b>Região: </b><a href="/regioes/{{ promotor.RegiaoId }}">{{ promotor.RegiaoId }}</a>
+  </p>
+
+  <h2>Tipos de atividade que o promotor promove</h2>
+  <ul>
+    {% for atv in atividades %}
+      <li><a href="/atividades/{{ atv.AtividadeId }}">{{ atv.Nome }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

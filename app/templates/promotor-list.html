@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Promotores{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Promtor Id</b></th>
+    <th><b>Nome</b></th>
+    <th><b>Morada</b></th>
+    <th><b>Codigo Postal</b></th>
+    <th><b>Região Id</b></th>
+   </tr>
+   
+  {% for promotor in promotores %}
+    <tr>
+      <td><a href="/promotores/{{ promotor.PromotorId }}">{{ promotor.PromotorId }}</a></td>
+      <td>{{ promotor.Nome }}</td>
+      <td>{{ promotor.Morada }}</td>
+      <td>{{ promotor.CodPostal }}</td>
+      <td><a href="/regioes/{{ promotor.RegiaoId }}">{{ promotor.RegiaoId }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

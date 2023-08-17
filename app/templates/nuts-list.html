@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}NUTS{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    NUTS é o acrónimo de “Nomenclatura das Unidades Territoriais para Fins Estatísticos”, sistema hierárquico de divisão do território em regiões.<br>
+    Esta nomenclatura foi criada pelo Eurostat no início dos anos 1970, visando a harmonização das estatísticas dos vários países em termos de recolha, compilação e divulgação de estatísticas regionais.<br>
+    A nomenclatura subdivide-se em 3 níveis (NUTS I, NUTS II, NUTS III), definidos de acordo com critérios populacionais, administrativos e geográficos.<br>
+    Assim, actualmente, os 308 municípios de Portugal agrupam-se em 25 NUTS III, 7 NUTS II e 3 NUTS I.
+  </p>
+  <table> 
+  <tr>
+    <th><b>NUTS III</b></th>
+    <th><b>NUTS II</b></th>
+    <th><b>NUTS I</b></th>
+   </tr>
+   
+  {% for nut in nuts %}
+    <tr>
+      <td><a href="/nuts/{{ nut.NUTS_III }}">{{ nut.NUTS_III }}</a></td>
+      <td>{{ nut.NUTS_II }}</td>
+      <td>{{ nut.NUTS_I }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

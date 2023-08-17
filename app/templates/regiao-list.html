@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Regiões{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Número de espaços por distrito e atividade <a href="/regioes/pesquisa_agrupada_espacos">aqui</a>.
+    <br>
+    Número de promotores por distrito e atividade <a href="/regioes/pesquisa_agrupada_promotores">aqui</a>.
+  </p>
+
+  <table> 
+  <tr>
+    <th><b>Região Id</b></th>
+    <th><b>Distrito</b></th>
+    <th><b>NUTS III</b></th>
+   </tr>
+   
+  {% for regiao in regioes %}
+    <tr>
+      <td><a href="/regioes/{{ regiao.RegiaoId }}">{{ regiao.RegiaoId }}</a></td>
+      <td>{{ regiao.Distrito }}</td>
+      <td>{{ regiao.NUTS_III }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+  
+{% endblock %}

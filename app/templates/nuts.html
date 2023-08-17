@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ nuts.NUTS_III }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Informação sobre o NUTS</h2>
+  <p>
+    <b>NUTS III: </b> {{nuts.NUTS_III}}
+    <br>
+    <b>NUTS II: </b> {{nuts.NUTS_II}}
+    <br>
+    <b>NUTS I: </b> {{nuts.NUTS_I}}
+  </p>
+
+  <p>
+    <a href="/nuts">Lista de todos os NUTS</a>
+  </p>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}"Espaços e Promotores de Atividades" database {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Acerca da base de dados</h2>
+<p>
+  Esta aplicação web ilustra o uso de uma base de dados para Espaços e Promotores de Ativdades
+  de Natureza Artística.
+  <br>
+  A aplicação foi desenvolvida com as ferramentas
+  <a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+  <a href="https://flask.palletsprojects.com">Flask</a>, e
+  <a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Algumas estatísticas da base de dados</h2>
+<table>
+  <tr>
+    <th>Itens</th>
+    <th>Quantidade</th>
+  </tr>
+  <tr>
+    <td>Espaços</td>
+    <td>{{ stats.Espacos }}</td>
+  </tr>
+  <tr>
+    <td>Promotores</td>
+    <td>{{ stats.Promotores }}</td>
+  </tr>
+  <tr>
+    <td>Tipos de atividade</td>
+    <td>{{ stats.Atividades }}</td>
+  </tr>
+  <tr>
+    <td>Regiões</td>
+    <td>{{ stats.Regioes }}</td>
+  </tr>
+</table>
+
+
+<h2>Pesquisas simples</h2>
+<h3>Espaços</h3>
+<p>
+<form name="esp_id" action="javascript:window.open('/espacos/'+document.forms['esp_id'].elements['id'].value,'_self')">
+  Pesquisa por Id: <input value="123" name="id" type="number" min="1" /><input type="submit" value="get" />
+</form>
+</p>
+<p>
+<form name="esp_search"
+  action="javascript:window.open('/espacos/pesquisa/'+document.forms['esp_search'].elements['expr'].value,'_self')">
+  Pesquisa por nome: <input name="expr" id="expr" value="Spider" required />
+  <input type="submit" value="search" />
+</form>
+</p>
+<p>
+  <a href="/espacos/pesquisa_avancada">Pesquisa avançada</a>
+</p>
+<p>
+  <a href="/espacos">Lista de todos os espaços</a>
+</p>
+
+<h3>Promotores</h3>
+<p>
+<form name="pro_id"
+  action="javascript:window.open('/promotores/'+document.forms['pro_id'].elements['id'].value,'_self')">
+  Pesquisa por Id: <input value="123" name="id" type="number" min="1" /><input type="submit" value="get" />
+</form>
+</p>
+<p>
+<form name="pro_search"
+  action="javascript:window.open('/promotores/pesquisa/'+document.forms['pro_search'].elements['expr'].value,'_self')">
+  Pesquisa por nome: <input name="expr" id="expr" value="Spider" required />
+  <input type="submit" value="search" />
+</form>
+</p>
+<p>
+  <a href="/promotores/pesquisa_avancada">Pesquisa avançada</a>
+</p>
+<p>
+  <a href="/promotores">Lista de todos os promotores</a>
+</p>
+
+
+<h3>Ativdades</h3>
+<p>
+  <a href="/atividades">Lista de todas as atividades</a>
+</p>
+
+
+<h3>Regiões</h3>
+<p>
+  <a href="/regioes">Lista de todas as regiões</a>
+</p>
+
+
+<h3>NUTS</h3>
+<p>
+  <a href="/nuts">Lista de todos os NUTS</a>
+</p>
+
+
+
+<h2>Espaços que podem acolher um dado promotor</h2>
+<p>
+  (nas caixas de input deve dar o id do promotor)
+</p>
+<p>
+  <form name="pro_esp_distrito" action="javascript:window.open('/espacos-para-promotor-distrito/'+document.forms['pro_esp_distrito'].elements['id'].value,'_self')">
+    Pesquisa no mesmo distrito: <input value="123" name="id" type="number" min="1" /><input type="submit" value="get" />
+  </form>
+</p>
+<p>
+  <form name="pro_esp_nutsiii" action="javascript:window.open('/espacos-para-promotor-nutsiii/'+document.forms['pro_esp_nutsiii'].elements['id'].value,'_self')">
+    Pesquisa no mesmo NUTS III: <input value="123" name="id" type="number" min="1" /><input type="submit" value="get" />
+  </form>
+</p>
+
+{% endblock %}

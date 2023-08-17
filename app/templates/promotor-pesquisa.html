@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Resultados da pesquisa{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>"{{ search.expr }}"</h2>
+  <p>
+    <table>
+        <tr>
+            <th><b>Promotor Id</b></th>
+            <th><b>Nome</b></th>
+        </tr>
+        
+        {% for promotor in promotores %}      
+        <tr>
+            <td><a href="/promotores/{{ promotor.PromotorId }}">{{ promotor.PromotorId }}</a></td>
+            <td>{{ promotor.Nome }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </p>
+{% endblock %}

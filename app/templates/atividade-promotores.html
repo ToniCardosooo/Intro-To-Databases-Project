@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Promotores que promovem atividades de {{ atividade.Nome }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<ul>
+  {% for pro in promotores %}
+    <li><a href="/promotores/{{ pro.PromotorId }}">{{ pro.Nome }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

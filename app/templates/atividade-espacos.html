@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Espaços que promovem atividades de {{ atividade.Nome }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<ul>
+  {% for esp in espacos %}
+    <li><a href="/espacos/{{ esp.EspacoId }}">{{ esp.Nome }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

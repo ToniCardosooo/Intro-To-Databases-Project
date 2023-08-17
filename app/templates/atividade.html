@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ atividade.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Informação sobre a atividade</h2>
+  <p>
+    <b>Atividade Id: </b>{{ atividade.AtividadeId }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ atividade.Nome }}
+  </p>
+
+  <p>
+    <a href="/espacos-para-atividade/{{ atividade.AtividadeId }}">
+      Espaços que acolhem atividades de {{ atividade.Nome }}
+    </a>
+  </p>
+
+  <p>
+    <a href="/promotores-para-atividade/{{ atividade.AtividadeId }}">
+      Promotores que promovem atividades de {{ atividade.Nome }}
+    </a>
+  </p>
+  
+{% endblock %}
